@@ -12,9 +12,18 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/mdbootstrap@4.20.0/css/mdb.min.css" integrity="sha256-jpjYvU3G3N6nrrBwXJoVEYI/0zw8htfFnhT9ljN3JJw=" crossorigin="anonymous"/>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.4/css/all.min.css" integrity="sha256-mUZM63G8m73Mcidfrv5E+Y61y7a12O5mW4ezU3bxqW4=" crossorigin="anonymous">
     <link rel="stylesheet" href="/assets/css/main.css">
-    <link rel="icon" href="/favicon.ico" type="image/x-icon"> <!-- Favicon line added here -->
+    <link rel="icon" href="/favicon.ico" type="image/x-icon">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Rokkitt:wght@700&family=Roboto:wght@400;500&display=swap" rel="stylesheet">
     <style>
-        body { background-color: #333; color: #fff; }
+        body { 
+            background-color: #333; 
+            color: #fff; 
+            font-family: 'Roboto', sans-serif; /* Roboto for body text */
+        }
+        h1 { 
+            font-family: 'Rokkitt', sans-serif; /* Montserrat for headings */
+        }
         a { color: #0d6efd; }
         hr { border-top: 1px solid #666; }
         .sidebar { position: fixed; top: 100px; right: 30px; width: 200px; }
@@ -24,7 +33,7 @@
 <header>
     <nav id="navbar" class="navbar navbar-expand-sm fixed-top" style="background-color: #222;">
         <div class="container">
-            <a class="navbar-brand text-white" href="/">Connor Heaton</a>
+            <!-- Removed name from here -->
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ml-auto">
                     <li class="nav-item active">
@@ -41,24 +50,13 @@
 <div class="container mt-5">
     <div class="row">
         <div class="col-md-9">
-            <h1>Connor Heaton</h1>
+            <h1>Connor Heaton</h1> <!-- Your name is now only here -->
             <p>I consult with businesses to help them understand emerging technologies and structure for successful change.</p>
-            <p>Essentially, I want to make the future a wildly better place, and I think the fastest and most likely path to that lies through technological advancement, particularly the creation of aligned human-level artificial intelligence.</p>
-            <p>Stuff I like to think about:</p>
-            <ul>
-                <li>The future of AI and society</li>
-                <li>The science of happiness and how we reflect on our lives</li>
-                <li>Inadequate equilibria</li>
-                <li>Interesting magic systems in fiction</li>
-            </ul>
-            <hr>
-            <p>Much like ASI, blog is coming soon, in 5 years, or possibly never.</p>
+            ...
         </div>
-        <div class="col-md-3 sidebar">
-            <p><strong>Contact</strong></p>
-            <p><a href="mailto:connor@heaton.com"><i class="fas fa-envelope"></i> Email</a></p>
-            <p><a href="https://www.linkedin.com/in/connorheaton"><i class="fab fa-linkedin"></i> LinkedIn</a></p>
-        </div>
+        ...
     </div>
 </div>
-<footer class="mt-5" style="background
+...
+</body>
+</html>
