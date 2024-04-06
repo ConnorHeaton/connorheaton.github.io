@@ -22,12 +22,29 @@
         }
         h1 { 
             font-family: 'Montserrat', sans-serif;
+            margin-bottom: 20px; /* Increased space below the name */
         }
         a { color: #0d6efd; }
         hr { border-top: 1px solid #666; }
-        .sidebar { position: fixed; top: 100px; right: 30px; width: 200px; }
+        .sidebar { 
+            position: fixed; 
+            top: 100px; 
+            right: 30px; 
+            width: 200px; 
+        }
         .custom-spacing {
             margin-top: 100px; /* Adjusted for more space */
+            margin-bottom: 40px; /* Increased space before "Stuff I like to think about" */
+        }
+
+        @media (max-width: 991px) {
+            .sidebar {
+                position: relative;
+                top: 0;
+                right: 0;
+                width: 100%;
+                margin-top: 20px;
+            }
         }
     </style>
 </head>
@@ -53,12 +70,14 @@
         <div class="col-md-9">
             <h1>Connor Heaton</h1>
             <p>I consult with businesses to help them understand emerging technologies and structure for successful change.</p>
-            <p>Essentially, I want to make the future a wildly better place, and I think the fastest and most likely path to that lies through technological advancement, particularly the creation of aligned human-level artificial intelligence.</p>
+            <p>I want to make the future a wildly better place, and I think the fastest and most likely path to that lies through technological advancement, particularly the creation of aligned human-level artificial intelligence.</p>
             <p>Stuff I like to think about:</p>
             <ul>
                 <li>The future of AI and society</li>
                 <li>The science of happiness and how we reflect on our lives</li>
                 <li>Inadequate equilibria</li>
+                <li>US education & law enforcement reform</li>
+                <li>Digital direct democracy</li>
                 <li>Interesting magic systems in fiction</li>
             </ul>
             <hr>
