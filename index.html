@@ -26,6 +26,9 @@
         a { color: #0d6efd; }
         hr { border-top: 1px solid #666; }
         .sidebar { position: fixed; top: 100px; right: 30px; width: 200px; }
+        .custom-spacing {
+            margin-top: 100px; /* Adjusted for more space */
+        }
     </style>
 </head>
 <body class="fixed-top-nav sticky-bottom-footer">
@@ -38,14 +41,14 @@
                         <a class="nav-link" href="/">About</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="/blog.html">Content</a> <!-- Link updated to point to the blog -->
+                        <a class="nav-link" href="/blog.html">Content</a>
                     </li>
                 </ul>
             </div>
         </div>
     </nav>
 </header>
-<div class="container mt-5">
+<div class="container custom-spacing">
     <div class="row">
         <div class="col-md-9">
             <h1>Connor Heaton</h1>
@@ -58,10 +61,22 @@
                 <li>Inadequate equilibria</li>
                 <li>Interesting magic systems in fiction</li>
             </ul>
-            <hr> <!-- Divider restored -->
+            <hr>
             <p>Much like ASI, blog is coming soon, in 5 years, or possibly never.</p>
         </div>
         <div class="col-md-3 sidebar">
             <p><strong>Contact</strong></p>
             <p><a href="mailto:connorheatonmain@gmail.com"><i class="fas fa-envelope"></i> Email</a></p>
-            <p><a href="https://
+            <p><a href="https://www.linkedin.com/in/connorheaton/"><i class="fab fa-linkedin"></i> LinkedIn</a></p>
+        </div>
+    </div>
+</div>
+<footer class="mt-5" style="background-color: #222; padding: 20px 0;">
+    <div class="container text-center">
+        © 2024 Connor Heaton
+    </div>
+</footer>
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js" integrity="sha256-SyTu6CwrfOhaznYZPoolVw2rxoY7lKYKQvqbtqN93HI=" crossorigin="anonymous"></script>
+</body>
+</html>
