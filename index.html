@@ -26,7 +26,7 @@
         }
         h1 { 
             font-family: 'Montserrat', sans-serif;
-            margin-bottom: 20px; /* Increased space below the name */
+            margin-bottom: 20px;
         }
         a { color: #0d6efd; }
         hr { border-top: 1px solid #666; }
@@ -37,22 +37,28 @@
             width: 200px; 
         }
         .custom-spacing {
-            margin-top: 100px; /* Adjusted for more space */
-            margin-bottom: 40px; /* Increased space before "Stuff I like to think about" */
+            margin-top: 100px;
+            margin-bottom: 40px;
         }
         .profile-picture {
             display: block;
             margin-left: auto;
             margin-right: auto;
-            margin-bottom: 40px; /* Increased space below the picture */
+            margin-bottom: 40px;
             border-radius: 50%;
-            width: 200px; /* Adjust as needed */
-            height: 200px; /* Adjust as needed */
+            width: 200px;
+            height: 200px;
         }
         footer {
             margin-top: auto;
             background-color: #222;
             padding: 20px 0;
+        }
+        .navbar-toggler-icon {
+            background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 32 32' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(255,255,255, 0.5)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 8h24M4 16h24M4 24h24'/%3E%3C/svg%3E");
+        }
+        .navbar-toggler {
+            border-color: rgba(255,255,255,.1);
         }
 
         @media (max-width: 991px) {
@@ -66,13 +72,16 @@
         }
     </style>
 </head>
-<body class="fixed-top-nav">
+<body>
 <header>
     <nav id="navbar" class="navbar navbar-expand-sm fixed-top" style="background-color: #222;">
         <div class="container">
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ml-auto">
-                    <li class="nav-item">
+                    <li class="nav-item active">
                         <a class="nav-link" href="/">About</a>
                     </li>
                     <li class="nav-item">
@@ -89,14 +98,13 @@
             <img src="profile-pic(4).png" alt="Connor Heaton" class="profile-picture">
             <h1>Connor Heaton</h1>
             <p>I consult with businesses to help them understand emerging technologies and structure for successful change.</p>
-            <p> <p>
             <p>I want to make the future a wildly better place, and I think the fastest and most likely path to that lies through technological advancement, particularly the creation of aligned human-level artificial intelligence.</p>
             <strong>Stuff I like to think about:</strong>
             <ul>
                 <li>The future of AI and society</li>
                 <li>The science of happiness and how we reflect on our lives</li>
                 <li>Inadequate equilibria</li>
-                <li>Interesting magic systems in fiction</li>
+                <li>The role of culture in near-future utopias</li>
             </ul>
             <hr>
             <strong>Selected Work:</strong>
