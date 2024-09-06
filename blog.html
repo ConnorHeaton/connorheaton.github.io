@@ -44,12 +44,26 @@
             margin-top: 40px;
             margin-bottom: 20px;
         }
+        .navbar-toggler-icon {
+            background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 32 32' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(255,255,255, 0.5)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 8h24M4 16h24M4 24h24'/%3E%3C/svg%3E");
+        }
+        .navbar-toggler {
+            border-color: rgba(255,255,255,.1);
+        }
+        @media (max-width: 767px) {
+            .content-header {
+                display: none;
+            }
+        }
     </style>
 </head>
-<body class="fixed-top-nav sticky-bottom-footer">
+<body>
 <header>
     <nav id="navbar" class="navbar navbar-expand-sm fixed-top" style="background-color: #222;">
         <div class="container">
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ml-auto">
                     <li class="nav-item">
@@ -63,10 +77,10 @@
         </div>
     </nav>
 </header>
-<div class="container mt-6">
+<div class="container mt-5 pt-3">
     <div class="row">
         <div class="col-md-12">
-            <h1 class="mb-5">Content</h1>
+            <h1 class="mb-5 content-header">Content</h1>
         </div>
     </div>
     <div class="row">
@@ -93,7 +107,7 @@
             </ul>
         </div>
         <div class="col-md-6">
-            <h2 class="section-header">Blogs, White Papers, and Other Written Content</h2>
+            <h2 class="section-header">Articles, White Papers, and Other Writings</h2>
             <ul class="content-list">
                 <li>August 2024 AI Predictions and Scoring (publication pending)</li>
                 <li><strong><a href="Sievewright_Perspectives_Report_April_2024.pdf">April 2024 Perspectives Report</a></strong></li>
@@ -117,5 +131,12 @@
 </footer>
 <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js" integrity="sha256-SyTu6CwrfOhaznYZPoolVw2rxoY7lKYKQvqbtqN93HI=" crossorigin="anonymous"></script>
+<script>
+    $(document).ready(function() {
+        $('.navbar-toggler').on('click', function() {
+            $('#navbarNav').toggleClass('show');
+        });
+    });
+</script>
 </body>
 </html>
