@@ -1,0 +1,296 @@
+/* ============================================================
+   Connor Heaton - site styles
+   Hand-written, no framework. Two pages share this file.
+   ============================================================ */
+
+/* ---------- self-hosted fonts (variable, subset to latin) ---------- */
+@font-face {
+  font-family:'Fraunces';
+  font-style:normal;
+  font-weight:300 600;
+  font-display:swap;
+  src:url('../fonts/fraunces-latin.woff2') format('woff2');
+  unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD;
+}
+@font-face {
+  font-family:'Fraunces';
+  font-style:normal;
+  font-weight:300 600;
+  font-display:swap;
+  src:url('../fonts/fraunces-latin-ext.woff2') format('woff2');
+  unicode-range:U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF;
+}
+@font-face {
+  font-family:'Space Grotesk';
+  font-style:normal;
+  font-weight:300 700;
+  font-display:swap;
+  src:url('../fonts/spacegrotesk-latin.woff2') format('woff2');
+  unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD;
+}
+@font-face {
+  font-family:'Space Grotesk';
+  font-style:normal;
+  font-weight:300 700;
+  font-display:swap;
+  src:url('../fonts/spacegrotesk-latin-ext.woff2') format('woff2');
+  unicode-range:U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF;
+}
+
+:root {
+  --bg:     #0e1013;
+  --ink:    #e8e9ec;
+  --mut:    #868d97;
+  --faint:  #5b626c;
+  --accent: #5fd0c5;
+  --line:   rgba(255,255,255,.08);
+
+  --serif: 'Fraunces','Hoefler Text','Iowan Old Style',Georgia,'Times New Roman',serif;
+  --grot:  'Space Grotesk',ui-sans-serif,system-ui,-apple-system,'Segoe UI',sans-serif;
+  --sans:  ui-sans-serif,system-ui,-apple-system,'Segoe UI',Roboto,Helvetica,Arial,sans-serif;
+}
+
+*,*::before,*::after { box-sizing:border-box; }
+
+html { -webkit-text-size-adjust:100%; }
+
+body {
+  margin:0;
+  min-height:100vh;
+  display:flex;
+  flex-direction:column;
+  font-family:var(--sans);
+  color:var(--ink);
+  /* Flat near-black + a faint engineered dot grid (no color-wash gradient) */
+  background-color:var(--bg);
+  background-image:radial-gradient(rgba(255,255,255,.035) 1px, transparent 1.4px);
+  background-size:23px 23px;
+  background-position:-6px -6px;
+  -webkit-font-smoothing:antialiased;
+  text-rendering:optimizeLegibility;
+}
+
+::selection { background:rgba(95,208,197,.28); color:#fff; }
+
+/* ---------- top nav ---------- */
+.topbar {
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  padding:24px 40px;
+  border-bottom:1px solid var(--line);
+}
+.nav {
+  display:flex;
+  gap:30px;
+  font-family:var(--grot);
+  font-size:12.5px;
+  letter-spacing:.14em;
+  text-transform:uppercase;
+}
+.nav a {
+  color:var(--mut);
+  text-decoration:none;
+  position:relative;
+  padding-bottom:5px;
+  transition:color .15s ease;
+}
+.nav a:hover { color:var(--ink); }
+.nav a.active { color:var(--ink); }
+.nav a.active::after {
+  content:"";
+  position:absolute; left:0; right:0; bottom:0;
+  height:1.5px; background:var(--accent);
+}
+
+/* ---------- content column ---------- */
+.wrap {
+  width:100%;
+  max-width:560px;
+  margin:0 auto;
+  padding:56px 40px 20px;
+  flex:1 0 auto;
+}
+.wrap--wide { max-width:780px; }
+
+.name {
+  font-family:var(--serif);
+  font-weight:340;
+  font-optical-sizing:auto;
+  font-size:52px;
+  line-height:1.02;
+  letter-spacing:-.01em;
+  margin:0;
+  color:#f3f4f6;
+}
+
+/* ---------- dividers ---------- */
+.rule {
+  position:relative;
+  height:1px;
+  margin:32px 0;
+  background:var(--line);
+  overflow:visible;
+  border:0;
+}
+.rule.breathe span {
+  position:absolute; top:0; left:0;
+  height:1px; width:38%;
+  background:linear-gradient(90deg,transparent,var(--accent),transparent);
+  filter:drop-shadow(0 0 6px rgba(95,208,197,.55));
+  animation:breathe 7s ease-in-out infinite;
+}
+@keyframes breathe {
+  0%,100% { opacity:.25; transform:translateX(0); }
+  50%     { opacity:1;   transform:translateX(160%); }
+}
+@media (prefers-reduced-motion:reduce) {
+  .rule.breathe span { animation:none; opacity:.7; width:46%; left:0; }
+}
+
+/* ---------- text ---------- */
+.lede {
+  font-family:var(--serif);
+  font-weight:360;
+  font-size:20px;
+  line-height:1.5;
+  color:#dcdee2;
+  margin:0 0 18px;
+}
+p {
+  font-size:15.5px;
+  line-height:1.72;
+  color:var(--mut);
+  margin:0 0 4px;
+}
+.blog {
+  color:#c7cad0;
+}
+
+.label {
+  font-family:var(--grot);
+  font-size:11.5px;
+  letter-spacing:.2em;
+  text-transform:uppercase;
+  color:var(--accent);
+  margin:32px 0 15px;
+}
+
+/* ---------- lists with border-only hexagon bullets ---------- */
+.list { list-style:none; margin:0; padding:0; }
+.list li {
+  position:relative;
+  padding-left:24px;
+  margin:0 0 5px;
+  font-size:15px;
+  line-height:1.55;
+  color:#c7cad0;
+}
+.list li::before {
+  content:"";
+  position:absolute; left:0; top:.775em;
+  transform:translateY(-50%);
+  width:11px; height:11px;
+  background:url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpolygon points='15,8 11.5,1.94 4.5,1.94 1,8 4.5,14.06 11.5,14.06' fill='none' stroke='%237f8792' stroke-width='1.3'/%3E%3C/svg%3E") no-repeat center/contain;
+}
+.list li strong { font-weight:600; }
+.list li strong a { color:var(--ink); }
+
+/* ---------- links ---------- */
+a {
+  color:var(--ink);
+  text-decoration:underline;
+  text-decoration-color:rgba(95,208,197,.4);
+  text-underline-offset:3px;
+  text-decoration-thickness:1px;
+  transition:color .15s ease, text-decoration-color .15s ease;
+}
+a:hover { color:var(--accent); text-decoration-color:var(--accent); }
+a:focus-visible {
+  outline:2px solid var(--accent);
+  outline-offset:3px;
+  border-radius:2px;
+}
+
+.fine {
+  font-size:13px;
+  line-height:1.6;
+  color:var(--faint);
+  font-style:italic;
+  margin:20px 0 0;
+}
+
+/* ---------- content page: blog card + two-column lists ---------- */
+.blog-card {
+  display:flex;
+  align-items:center;
+  gap:22px;
+  border:1px solid var(--line);
+  border-radius:12px;
+  padding:20px 22px;
+  margin:8px 0 6px;
+  background:rgba(255,255,255,.015);
+}
+.blog-card img {
+  flex:0 0 auto;
+  height:104px; width:104px;
+  object-fit:cover;
+  border-radius:8px;
+  /* teal duotone, tuned to the accent */
+  filter:grayscale(1) sepia(1) saturate(1.55) hue-rotate(126deg) brightness(0.92) contrast(1.03);
+}
+.blog-card .blog-body { flex:1; }
+.blog-card p { color:#c7cad0; margin:0 0 12px; }
+.blog-cta {
+  font-family:var(--grot);
+  font-size:12px;
+  letter-spacing:.12em;
+  text-transform:uppercase;
+  text-decoration:none;
+  color:var(--accent);
+}
+.blog-cta:hover { color:var(--ink); }
+.blog-cta .arrow { transition:transform .18s ease; display:inline-block; }
+.blog-cta:hover .arrow { transform:translateX(3px); }
+
+.grid {
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:40px 48px;
+  margin-top:8px;
+}
+
+/* ---------- footer ---------- */
+.foot {
+  flex-shrink:0;
+  max-width:560px;
+  width:100%;
+  margin:48px auto 0;
+  padding:20px 40px 40px;
+  border-top:1px solid rgba(95,208,197,.55);
+  font-family:var(--grot);
+  font-size:11.5px;
+  letter-spacing:.1em;
+  text-transform:uppercase;
+  color:var(--faint);
+}
+.foot--wide { max-width:780px; }
+.foot a {
+  color:var(--mut);
+  text-decoration:none;
+}
+.foot a:hover { color:var(--accent); }
+.foot .sep { color:var(--faint); opacity:.6; margin:0 8px; }
+
+/* ---------- responsive ---------- */
+@media (max-width:720px) {
+  .grid { grid-template-columns:1fr; gap:32px; }
+}
+@media (max-width:640px) {
+  .topbar { padding:20px 22px; }
+  .wrap { padding:40px 24px 12px; }
+  .name { font-size:40px; }
+  .foot { padding:18px 24px 36px; }
+  .blog-card { flex-direction:column; align-items:flex-start; text-align:left; }
+  .blog-card img { height:88px; width:88px; }
+}
