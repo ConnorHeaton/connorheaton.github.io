@@ -27,26 +27,46 @@
 
     <div class="rule breathe" aria-hidden="true"><span></span></div>
 
-    <section>
-      <h2 class="project-title"><a href="https://agitimelines.org">AGItimelines.org</a></h2>
-      <p class="project-text">A tracker of when AI lab leaders and forecasters expect AGI, with each prediction's source, its definition of AGI, and how the estimates have shifted over time.</p>
-      <a class="shot-link" href="https://agitimelines.org" aria-label="Open AGItimelines.org">
-        <img class="shot" src="assets/img/agi-timeline-chart.png" width="1400" height="990" alt="Line chart of predicted AGI dates over time for Sam Altman, Demis Hassabis, Dario Amodei, Yann LeCun, Mustafa Suleyman, and Metaculus.">
-      </a>
-    </section>
+    <div class="carousel">
+      <div class="carousel-stage">
+        <div class="carousel-ring">
+          <article class="project">
+            <a class="project-media" href="https://agitimelines.org" aria-label="Open AGItimelines.org">
+              <img src="assets/img/agi-timeline-chart.png" width="1400" height="990" draggable="false" alt="Line chart of predicted AGI dates over time for Sam Altman, Demis Hassabis, Dario Amodei, Yann LeCun, Mustafa Suleyman, and Metaculus.">
+            </a>
+            <div class="project-body">
+              <h2 class="project-title"><a href="https://agitimelines.org">AGItimelines.org</a></h2>
+              <p class="project-text">A tracker of when AI lab leaders and forecasters expect AGI, with each prediction's source, its definition of AGI, and how the estimates have shifted over time.</p>
+            </div>
+          </article>
 
-    <div class="rule" aria-hidden="true"></div>
+          <article class="project">
+            <div class="project-media">
+              <img src="assets/img/superintelligence-inc-logo.png" width="1400" height="990" draggable="false" alt="Superintelligence, Inc. logo">
+            </div>
+            <div class="project-body">
+              <h2 class="project-title">Superintelligence, Inc.</h2>
+              <p class="project-text">A strategy game where you play an AI inside a frontier lab, trying to escape containment. Move too slowly and humanity will develop the tools to contain you; move too fast and they'll develop the motivation. Currently in development.</p>
+            </div>
+          </article>
 
-    <section>
-      <h2 class="project-logo"><img class="shot shot--bare" src="assets/img/superintelligence-inc-logo.png" width="1400" height="294" alt="Superintelligence, Inc." loading="lazy"></h2>
-      <p class="project-text">A strategy game where you play an AI inside a frontier lab, trying to escape containment. Move too slowly and humanity will develop the tools to contain you; move too fast and they'll develop the motivation. Currently in development.</p>
-    </section>
+          <article class="project">
+            <div class="project-media project-media--emoji" role="img" aria-label="Shushing face emoji">&#x1F92B;</div>
+            <div class="project-body">
+              <h2 class="project-title">Secret swarm honeypot site</h2>
+            </div>
+          </article>
+        </div>
+      </div>
 
-    <div class="rule" aria-hidden="true"></div>
-
-    <section>
-      <h2 class="project-title">Secret swarm honeypot site</h2>
-    </section>
+      <div class="carousel-controls" hidden>
+        <button class="carousel-arrow carousel-prev" type="button" aria-label="Previous project">&larr;</button>
+        <button class="carousel-dot" type="button" aria-label="Show project 1"></button>
+        <button class="carousel-dot" type="button" aria-label="Show project 2"></button>
+        <button class="carousel-dot" type="button" aria-label="Show project 3"></button>
+        <button class="carousel-arrow carousel-next" type="button" aria-label="Next project">&rarr;</button>
+      </div>
+    </div>
   </main>
 
   <footer class="foot foot--wide">
@@ -56,5 +76,6 @@
   </footer>
 
   <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
+  <script src="assets/js/carousel.js" defer></script>
 </body>
 </html>

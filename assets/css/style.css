@@ -52,13 +52,14 @@
 
 *,*::before,*::after { box-sizing:border-box; }
 
-html { -webkit-text-size-adjust:100%; }
+html { -webkit-text-size-adjust:100%; overflow-x:hidden; }
 
 body {
   margin:0;
   min-height:100vh;
   display:flex;
   flex-direction:column;
+  overflow-x:clip;  /* 50vw full-bleed sections include the scrollbar */
   font-family:var(--sans);
   color:var(--ink);
   /* Flat near-black + a faint engineered dot grid (no color-wash gradient) */
@@ -260,7 +261,29 @@ a:focus-visible {
   margin-top:8px;
 }
 
-/* ---------- projects page ---------- */
+/* ---------- projects page: a stacked list until carousel.js takes over ---------- */
+.project + .project {
+  margin-top:32px;
+  padding-top:32px;
+  border-top:1px solid var(--line);
+}
+.project-media { display:block; }
+.project-media img {
+  display:block;
+  width:100%;
+  height:auto;
+  -webkit-user-drag:none;
+}
+.project-media--emoji {
+  display:grid;
+  place-items:center;
+  min-height:200px;
+  font-family:'Apple Color Emoji','Segoe UI Emoji','Noto Color Emoji',sans-serif;
+  font-size:104px;
+  line-height:1;
+  background:#101317;
+}
+.project-body { margin-top:16px; }
 .project-title {
   font-family:var(--serif);
   font-weight:360;
@@ -269,19 +292,80 @@ a:focus-visible {
   color:#f3f4f6;
   margin:0;
 }
-.project-logo { margin:0; font-size:0; }
 .project-text { color:#c7cad0; margin:10px 0 0; }
-.project-logo + .project-text { margin-top:18px; }
-.shot-link { display:block; margin-top:18px; }
-.shot {
-  display:block;
-  width:100%;
-  height:auto;
-  border:1px solid var(--line);
-  transition:border-color .15s ease;
+
+/* carousel: full-bleed so the side cards can leave the column */
+.carousel.is-live {
+  margin-inline:calc(50% - 50vw);
+  overflow-x:clip;
+  padding-block:6px;
 }
-.shot--bare { border:0; }  /* the logo panel carries its own frame */
-.shot-link:hover .shot { border-color:rgba(95,208,197,.55); }
+.is-live .carousel-stage {
+  display:flex;
+  justify-content:center;
+  cursor:grab;
+  touch-action:pan-y;
+  -webkit-user-select:none;
+  user-select:none;
+}
+.is-dragging .carousel-stage { cursor:grabbing; }
+.is-live .carousel-ring {
+  display:grid;
+  width:min(520px, 82vw);
+  transform-style:preserve-3d;
+  transition:transform .35s ease-out;
+}
+.is-live .project {
+  grid-area:1 / 1;
+  display:flex;
+  flex-direction:column;
+  margin:0;
+  padding:0;
+  overflow:hidden;
+  border:1px solid rgba(255,255,255,.12);
+  border-radius:12px;
+  background:#15181c;
+  will-change:transform, opacity;
+}
+.is-live .project-media--emoji { flex:1; min-height:0; }
+.is-live .project-body { margin:0; padding:16px 20px 20px; }
+.is-live .project-title { font-size:22px; }
+
+.carousel-controls {
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  gap:6px;
+  margin-top:20px;
+}
+.carousel-controls[hidden] { display:none; }
+.carousel-controls button {
+  appearance:none;
+  width:32px;
+  height:32px;
+  padding:0;
+  border:0;
+  cursor:pointer;
+}
+.carousel-arrow {
+  background:none;
+  font-family:var(--grot);
+  font-size:17px;
+  color:var(--mut);
+  transition:color .15s ease;
+}
+.carousel-arrow:hover { color:var(--accent); }
+.carousel-dot {
+  background:url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpolygon points='15,8 11.5,1.94 4.5,1.94 1,8 4.5,14.06 11.5,14.06' fill='none' stroke='%237f8792' stroke-width='1.3'/%3E%3C/svg%3E") no-repeat center/13px;
+}
+.carousel-dot[aria-current] {
+  background-image:url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpolygon points='15,8 11.5,1.94 4.5,1.94 1,8 4.5,14.06 11.5,14.06' fill='%235fd0c5' stroke='%235fd0c5' stroke-width='1.3'/%3E%3C/svg%3E");
+}
+.carousel-controls button:focus-visible {
+  outline:2px solid var(--accent);
+  outline-offset:-2px;
+  border-radius:2px;
+}
 
 /* ---------- footer ---------- */
 .foot {
