@@ -1,6 +1,6 @@
 /* ============================================================
    Connor Heaton - site styles
-   Hand-written, no framework. Two pages share this file.
+   Hand-written, no framework. All pages share this file.
    ============================================================ */
 
 /* ---------- self-hosted fonts (variable, subset to latin) ---------- */
@@ -259,6 +259,29 @@ a:focus-visible {
   gap:40px 48px;
   margin-top:8px;
 }
+
+/* ---------- projects page ---------- */
+.project-title {
+  font-family:var(--serif);
+  font-weight:360;
+  font-size:24px;
+  line-height:1.25;
+  color:#f3f4f6;
+  margin:0;
+}
+.project-logo { margin:0; font-size:0; }
+.project-text { color:#c7cad0; margin:10px 0 0; }
+.project-logo + .project-text { margin-top:18px; }
+.shot-link { display:block; margin-top:18px; }
+.shot {
+  display:block;
+  width:100%;
+  height:auto;
+  border:1px solid var(--line);
+  transition:border-color .15s ease;
+}
+.shot--bare { border:0; }  /* the logo panel carries its own frame */
+.shot-link:hover .shot { border-color:rgba(95,208,197,.55); }
 
 /* ---------- footer ---------- */
 .foot {
